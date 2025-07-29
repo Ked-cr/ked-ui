@@ -1,0 +1,58 @@
+@import "tailwindcss";
+
+/* Inter Variable Regular + Bold */
+@font-face {
+  font-family: 'Inter';
+  src: url('./asset/font/Inter/Inter-VariableFont_opsz,wght.ttf') format('truetype');
+  font-weight: 100 900;
+  font-style: normal;
+}
+
+/* Inter Variable Italic */
+@font-face {
+  font-family: 'Inter';
+  src: url('./asset/font/Inter/Inter-Italic-VariableFont_opsz,wght.ttf') format('truetype');
+  font-weight: 100 900;
+  font-style: italic;
+}
+
+/* global-start */
+::-webkit-scrollbar {
+  display: none;
+}
+
+body {
+  font-family: 'Inter';
+}
+
+.hide-scrollbar {
+  overflow: hidden;
+}
+
+
+/* variabel theme */
+:root {
+  --clr-hvr: #D3D3D3;
+  --clr-hvr-dark: #00000072;
+  --clr-light: #fff;
+  --clr-dark: #000;
+  --clr-sub-text: rgb(84, 84, 84);
+  --clr-secondary: #E8E8E8;
+  --clr-secondary2: #0074C7;
+  --clr-secondary2-hvr: #0095FF;
+  --clr-primary: #3C3D37;
+  --clr-primary2: #212121;
+  --clr-sub-text-dark: #686868;
+  --clr-primary-hvr: #5B5B5B;
+  --clr-primary-trans: #000000a1;
+  /* --clr-hover-item: */
+}
+
+/* shadow */
+.shd1 {
+  box-shadow: rgba(67, 71, 85, 0.27) 0px 0px 0.25em, rgba(90, 125, 188, 0.05) 0px 0.25em 1em;
+}
+
+.shd2 {
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}

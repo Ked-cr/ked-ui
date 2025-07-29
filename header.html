@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="global.css" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  </head>
+
+  <style>
+    @media (min-width: 769) {
+      #overlay {
+        display: none;
+      }
+    }
+
+    li.active > a {
+      background-color: var(--clr-hvr);
+    }
+    @media (max-width: 768px) {
+      #header {
+        color: var(--clr-dark);
+        position: absolute;
+        /* padding-inline: 1rem; */
+        display: flex;
+        justify-content: end;
+      }
+      #header .logo {
+        display: none;
+      }
+      #header.stiky {
+        color: var(--clr-light);
+        position: fixed;
+        justify-content: start;
+        transition: justify-content 0s 1s initial;
+      }
+      #header.stiky .logo {
+        display: flex;
+      }
+      #header.stiky > .content {
+        padding-block: 0.5rem;
+        border-radius: 0.375rem;
+      }
+      #header.stiky > .content {
+        width: 100%;
+        padding-inline: 1rem;
+        padding-block: 0.5rem;
+        background-color: rgba(0, 0, 0, 0.8);
+        height: auto;
+        opacity: 1;
+        border-radius: 0.375rem;
+
+        scale: 1;
+      }
+
+      #header.stiky > .content.show-anim {
+        padding: 0;
+        margin: 0;
+        width: 50px;
+        opacity: 0;
+        height: 50px;
+        border-radius: 20px;
+        overflow: hidden;
+        transition: border-radius 0.5s 0.2s ease, width 0.6s ease-in-out,
+          height 0.6s ease-in-out, padding 0.4s ease-in-out,
+          margin 0.4s ease-in-out, scale 0.5s ease, opacity 0.4s 0.3s ease;
+
+        scale: 0.5;
+      }
+
+      #header.stiky > .content.show-anim #menu-display {
+        display: none;
+      }
+      #btn-menu {
+        background-image: url("asset/icon/btn/menu.svg");
+      }
+      #header.stiky #btn-menu {
+        background-image: url("asset/icon/btn/menu-light.svg");
+      }
+
+      #menu-display {
+        top: -1000%;
+        transition: top 0.2s linear;
+      }
+      #menu-display.show {
+        top: -0.5rem;
+      }
+      #menu-display li {
+        margin-bottom: 0.3rem;
+      }
+
+      #overlay {
+        display: none;
+        inset: 0;
+        background-color: black;
+        opacity: 0;
+        position: fixed;
+        transition: opacity 0.5s 0.5s linear;
+        z-index: 1;
+      }
+
+      #overlay.show {
+        display: block;
+        opacity: 0.5;
+      }
+      #btn-menu:hover::before {
+        background-color: var(--clr-hvr);
+        transition: all 0.2s linear;
+      }
+      #header.stiky #btn-menu:hover::before {
+        background-color: var(--clr-hvr-dark);
+        transition: all 0.2s linear;
+      }
+    }
+  </style>
+
+  <body class="h-[10000px] bg-[var(--clr-light)] px-[5%] py-6">
+    <header id="header" class="left-0 right-0 mx-[5%] z-20">
+      <div
+        class="content flex transition-all duration-300 justify-between items-center md:bg-transparent md:text-[var(--clr-dark)]"
+      >
+        <div class="logo flex gap-4">
+          <div
+            class="avatar-profile right w-[50px] h-[50px] bg-cyan-900 rounded-md overflow-hidden md:hidden"
+          >
+            <img src="./asset/image/avatar.png" alt="avatar-profile" />
+          </div>
+          <div class="left">
+            <h1 class="text-xl leading-snug whitespace-nowrap">Eko Ramadani</h1>
+            <span class="text-sm leading-snug">Student</span>
+          </div>
+        </div>
+        <nav class="navigation flex items-center">
+          <ul
+            id="menu-display"
+            class="absolute z-50 top-[-1000%] md:static shadow-[0_5px_15px_rgba(0,0,0,0.35)] left-[-5%] w-[110%] bg-[var(--clr-light)] text-[var(--clr-dark)] p-3 pb-5 rounded-b-xl md:bg-transparent md:shadow-none md:flex md:gap-2"
+          >
+            <li class="active">
+              <a
+                href="#"
+                class="flex items-center gap-3 h-[44px] px-4 rounded-md duration-100 transition-colors hover:bg-[var(--clr-hvr)]"
+              >
+                <div
+                  class="logo-item w-[24px] h-[24px] bg-[url(./asset/icon/btn/home.svg)] bg-size-(--my-image-size) bg-no-repeat bg-center"
+                ></div>
+                <span class="text-base leading-[.5]">Home</span>
+              </a>
+            </li>
+            <li>
+              <a
+                href="#"
+                class="flex items-center gap-3 h-[44px] px-4 rounded-md duration-100 transition-colors hover:bg-[var(--clr-hvr)]"
+              >
+                <div
+                  class="bg-[url(./asset/icon/btn/project.svg)] w-[24px] h-[24px] bg-size-(--my-image-size) bg-no-repeat"
+                ></div>
+
+                <span class="text-base leading-[.5]">Project</span>
+              </a>
+            </li>
+            <li>
+              <a
+                href="#"
+                class="flex items-center gap-3 h-[44px] px-4 rounded-md duration-100 transition-colors hover:bg-[var(--clr-hvr)]"
+              >
+                <div
+                  class="logo-item w-[24px] h-[24px] bg-size-(--my-image-size) bg-no-repeat bg-[url(./asset/icon/btn/certificate.svg)]"
+                ></div>
+                <span class="text-base leading-[.5]">Certification</span>
+              </a>
+            </li>
+            <li>
+              <a
+                href="#"
+                class="flex items-center gap-3 h-[44px] px-4 rounded-md duration-100 transition-colors hover:bg-[var(--clr-hvr)]"
+              >
+                <div
+                  class="logo-item w-[24px] h-[24px] bg-size-(--my-image-size) bg-no-repeat bg-[url(./asset/icon/btn/contact.svg)]"
+                ></div>
+                <span class="text-base leading-[.5]">Contact</span></a
+              >
+            </li>
+          </ul>
+          <button
+            id="btn-menu"
+            class="cursor-pointer md:hidden bg-size-(--my-image-size) bg-no-repeat bg-center w-[33px] h-[33px] before:w-[41px] before:h-[41px] before:content-[''] before:absolute before:top-[-4px] before:left-[-5.5px] before:z-[-1] before:rounded-sm relative"
+          ></button>
+        </nav>
+      </div>
+    </header>
+    <div id="overlay" class=""></div>
+
+    <script>
+      const btnMenu = document.getElementById("btn-menu");
+      const menuDisplay = document.getElementById("menu-display");
+      const overlay = document.getElementById("overlay");
+      const header = document.getElementById("header");
+
+      const menuItemList = menuDisplay.children;
+      [...menuItemList].forEach((item) => {
+        item.addEventListener("click", () => {
+          [...menuItemList].forEach((item) => {
+            item.classList.remove("active");
+          });
+          item.classList.add("active");
+          if (window.innerWidth <= 768) {
+            toggle();
+            enableScroll();
+          }
+        });
+      });
+
+      btnMenu.addEventListener("click", () => {
+        toggle();
+        disableScroll();
+      });
+
+      overlay.addEventListener("click", () => {
+        toggle();
+        enableScroll();
+      });
+
+      function toggle() {
+        togglemenuDisplay();
+        toggleOverlay();
+      }
+      function togglemenuDisplay() {
+        menuDisplay.classList.toggle("show");
+      }
+      function toggleOverlay() {
+        const overlay = document.getElementById("overlay");
+        overlay.classList.toggle("show");
+      }
+
+      window.addEventListener("scroll", () => {
+        if (window.innerWidth <= 768) {
+          if (document.documentElement.scrollTop >= 200) {
+            if (!header.classList.contains("stiky")) {
+              header.firstElementChild.classList.add("show-anim");
+
+              setTimeout(() => {
+                header.firstElementChild.classList.remove("show-anim");
+              }, 100);
+              header.classList.add("stiky");
+            }
+          } else {
+            if (header.classList.contains("stiky")) {
+              header.firstElementChild.classList.add("show-anim");
+
+              // if (document.documentElement.scrollTop == 0) {
+              setTimeout(() => {
+                header.classList.remove("stiky");
+                header.firstElementChild.classList.remove("show-anim");
+              }, 500);
+            }
+          }
+        }
+      });
+
+      function disableScroll() {
+        document.body.style.overflow = "hidden";
+      }
+
+      function enableScroll() {
+        document.body.style.overflow = "";
+      }
+    </script>
+  </body>
+</html>
