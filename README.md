@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="images/status/1754109989121.png" alt="1754109989121" width="200">
+
+
 # 🧩 KED UI — Komponen UI Reusable Pribadi
 
 **KED UI** adalah kumpulan komponen HTML dan CSS modular yang saya buat untuk digunakan ulang dalam berbagai proyek front-end, terutama untuk portofolio dan landing page pribadi. Komponen ini dibangun dengan struktur yang terorganisir dan tanpa dependensi framework (vanilla HTML & CSS).
@@ -15,6 +19,7 @@ Proyek ini bertujuan untuk:
 ---
 
 ## 📁 Struktur Folder
+
 ```
 portofolio/
 ├── asset/
@@ -39,12 +44,13 @@ portofolio/
 
 ## 🧱 Daftar Komponen
 
-| Kategori     | Komponen                                           | Deskripsi                              |
-|--------------|----------------------------------------------------|----------------------------------------|
-| Base         | `card.html`, `label.html`                          | Komponen dasar UI                      |
-| Typography   | `typograpy.html`                                   | Pengaturan teks                        |
-| Sections     | `article.html`, `certificate.html`, `carousel.html`| Layout untuk konten utama              |
-| Utilities    | `header.html`, `footer.html`, `global-chat.html`   | Komponen global tiap halaman          |
+
+| Kategori   | Komponen                                            | Deskripsi                    |
+| ---------- | --------------------------------------------------- | ---------------------------- |
+| Base       | `card.html`, `label.html`                           | Komponen dasar UI            |
+| Typography | `typograpy.html`                                    | Pengaturan teks              |
+| Sections   | `article.html`, `certificate.html`, `carousel.html` | Layout untuk konten utama    |
+| Utilities  | `header.html`, `footer.html`, `global-chat.html`    | Komponen global tiap halaman |
 
 ---
 
